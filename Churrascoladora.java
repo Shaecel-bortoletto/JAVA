@@ -1,56 +1,53 @@
 /**
- * Atividade de avaliação - Churrascoladora
- * @autor Marcio Roberto, Anselmo Bortoletto
+ * @author Marcio Roberto Leite da Silva / Anselmo Bortoletto
+ * Date 06/21/2018 
+ * Nome do projeto: Churrascoladora
+ * Classe para montar a calculadora de churrasco
  */
-
 package br.com.java;
 
 import java.util.Scanner;
 
 public class Churrascoladora {
-
+	/* Método principal */
 	public static void main(String[] args) {
-		// Variaveis
-		int homens, mulheres, criancas;
-		double carne, cerveja, refri, r$carne, r$cerveja, r$refri,quant, preco, res,total;
-
+		// A linha abaixo cria variáveis numéricas do tipo inteiro
+		int homem, mulher, crianca;
+		// A linha abaixo cria variáveis numéricas de precisão
+		double precoCarne, precoCerveja, precoRefri, totalCarne, totalCerveja, totalRefri, totalChurras;
+		// A linha abaixo cria o objeto teclado que
+		// será usado pela classe Scanner
 		Scanner teclado = new Scanner(System.in);
-		// entrada
+		System.out.println("=========================");
+		// A linha abaixo exibe o nome do programa para o usuário
 		System.out.println("=====CHURRASCOLADORA=====");
+		System.out.println("=========================");
+		// As linhas abaixo solicitam as informações que serão necessárias para fazermos
+		// os cálculos
 		System.out.println("Quantidade de Homens: ");
-		homens = teclado.nextInt();
-		System.out.println("Quantidade de Mulheres: ");
-		mulheres = teclado.nextInt();
-		System.out.println("Quantidade de Crianças: ");
-		criancas = teclado.nextInt();
-		System.out.println("Preço médio do Kg da Carne: ");
-		carne = teclado.nextInt();
-		System.out.println("Preço médio da lata de Cerveja: ");
-		cerveja = teclado.nextInt();
-		System.out.println("Preço médio da lata de refrigerante: ");
-		refri = teclado.nextInt();
-		// processamento
-		quant = (homens * 12) + (mulheres * 4);
-		r$cerveja = (quant * cerveja);
-		r$carne = ((homens + mulheres)*300)+(criancas*100)/1000;
-		preco = r$carne * carne;
-		// saída
-		System.out.println("");
-		System.out.println("___________________________________");
-		System.out.println("Lista de compras: ");
-		// exibir quantidade e preço
-		System.out.println("Quantidade total de Carne: " + r$carne + " KG " +  " R$ " + preco );
-		System.out.println("Quantidade total de Cerveja: " +quant + " latas " +  " R$ " + r$cerveja );	
-		quant = (mulheres * 2) + (criancas * 2);
-		r$refri = (quant * refri);
-		res= preco+r$refri+r$cerveja;
-		total= res/(homens + mulheres);
-		System.out.println("Quantidade total de Refrigerante: " +quant + " latas " +  " R$ " + r$refri);
-		System.out.println("");
-		System.out.println("____________________________________");
-		System.out.println("Valor total do Churrasco: " + res );
-		System.out.println("Valor por pessoa: " + total);
-
+		homem = teclado.nextInt();
+		System.out.println("Quantidade de mulheres: ");
+		mulher = teclado.nextInt();
+		System.out.println("Quantidade de crianças: ");
+		crianca = teclado.nextInt();
+		System.out.println("Preço da Carne (Kg): ");
+		precoCarne = teclado.nextInt();
+		System.out.println("Preço da Cerveja: ");
+		precoCerveja = teclado.nextInt();
+		System.out.println("Preço do refrigerante: ");
+		precoRefri = teclado.nextInt();
+		// As linhas abaixo executam todo processamento e exibem os resultados para o
+		// usuário
+		totalCarne = (((homem + mulher) * 300) + (crianca * 100)) / 1000;
+		System.out.println("Total de carne: " + (totalCarne) + " Kg " + " R$ " + totalCarne * precoCarne);
+		totalCerveja = (homem * 12) + (mulher * 4);
+		System.out.println("Total de cerveja: " + totalCerveja + " latas " + " R$ " + (totalCerveja * precoCerveja));
+		totalRefri = (mulher + crianca) * 2;
+		System.out.println("Total de refrigerante: " + totalRefri + " latas " + " R$ " + (totalRefri * precoRefri));
+		totalChurras = (totalCarne * precoCarne) + (totalCerveja * precoCerveja) + (totalRefri * precoRefri);
+		System.out.println("Total do Churrasco: R$ " + totalChurras);
+		totalChurras = totalChurras / (homem + mulher);
+		System.out.println("total por pessoa: R$ " + totalChurras);
 	}
 
 }
